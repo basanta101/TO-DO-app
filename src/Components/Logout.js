@@ -1,7 +1,8 @@
 import React,{ Component } from "react";
 import Cookies from 'js-cookie';
 import { message } from 'antd';
-import { connect } from 'redux-saga';
+import { connect } from 'react-redux';
+import actions from "./Login/Actions";
 class Logout extends Component{
     constructor(props){
         super(props);
@@ -14,5 +15,8 @@ class Logout extends Component{
         return (true);
     }
 }
+const mapDispatchToProps={
+    storeUser: actions.storeUser
+}
 
-export default Logout;
+export default connect( undefined,mapDispatchToProps)(Logout);
